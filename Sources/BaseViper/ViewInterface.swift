@@ -1,5 +1,2 @@
-protocol ViewInterface {
-}
-
-extension ViewInterface {
-}
+public protocol ViewInterface { }
+public extension ViewInterface { }

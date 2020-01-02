@@ -1,5 +1,2 @@
-protocol InteractorInterface: class {
-}
-
-extension InteractorInterface {
-}
+public protocol InteractorInterface: class { }
+public extension InteractorInterface { }

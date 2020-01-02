@@ -1,5 +1,2 @@
-protocol PresenterInterface: class {
-}
-
-extension PresenterInterface {
-}
+public protocol PresenterInterface: class { }
+public extension PresenterInterface { }

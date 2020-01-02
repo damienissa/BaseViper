@@ -1,60 +1,49 @@
 import UIKit
 
-protocol WireframeInterface: class {
-    
-    func show(error: Error)
-}
-
-class BaseWireframe {
+public class BaseWireframe {
 
     private unowned var _viewController: UIViewController
 
     //to retain view controller reference upon first access
     private var _temporaryStoredViewController: UIViewController?
 
-    init(viewController: UIViewController) {
+    public init(viewController: UIViewController) {
+        
         _temporaryStoredViewController = viewController
         _viewController = viewController
-    }
-
-}
-
-extension BaseWireframe: WireframeInterface {
-    
-    func show(error: Error) {
-    
-        print(error.localizedDescription)
     }
 }
 
 extension BaseWireframe {
 
-    var viewController: UIViewController {
+   public var viewController: UIViewController {
         defer { _temporaryStoredViewController = nil }
         return _viewController
     }
 
-    var navigationController: UINavigationController? {
-        return viewController.navigationController
+    public var navigationController: UINavigationController? {
+        
+        viewController.navigationController
     }
-
 }
 
-extension UIViewController {
+public extension UIViewController {
 
     func presentWireframe(_ wireframe: BaseWireframe, animated: Bool = true, completion: (() -> Void)? = nil) {
+        
         present(wireframe.viewController, animated: animated, completion: completion)
     }
 }
 
-extension UINavigationController {
+public extension UINavigationController {
 
     func pushWireframe(_ wireframe: BaseWireframe, animated: Bool = true) {
-        self.pushViewController(wireframe.viewController, animated: animated)
+        
+        pushViewController(wireframe.viewController, animated: animated)
     }
 
     func setRootWireframe(_ wireframe: BaseWireframe, animated: Bool = true) {
-        self.setViewControllers([wireframe.viewController], animated: animated)
+        
+        setViewControllers([wireframe.viewController], animated: animated)
     }
-
 }

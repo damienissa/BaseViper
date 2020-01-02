@@ -1,5 +1,2 @@
-protocol FormatterInterface: class {
-}
-
-extension FormatterInterface {
-}
+public protocol FormatterInterface: class { }
+public extension FormatterInterface { }
