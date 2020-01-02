@@ -1,2 +1,2 @@
-public protocol ViewInterface { }
+public protocol ViewInterface: class { }
 public extension ViewInterface { }

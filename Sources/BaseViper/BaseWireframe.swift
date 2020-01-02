@@ -1,6 +1,6 @@
 import UIKit
 
-public class BaseWireframe {
+open class BaseWireframe {
 
     private unowned var _viewController: UIViewController
 
